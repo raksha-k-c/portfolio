@@ -1,121 +1,80 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <div className="portfolio-container">
+      {/* 1. NAVIGATION BAR */}
+      <header className="navbar">
+        <div className="logo">Raksha K C</div>
+        <nav>
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
 
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
+      {/* 2. HERO SECTION */}
+      <section id="hero" className="hero-section">
+        <h1>Hi, I'm Raksha 👋</h1>
+        <h2>AI Engineer & Software Developer</h2>
+        <p className="tagline">
+          Building intelligent applications and modern web experiences in Bengaluru, India.
+        </p>
+        <div className="cta-buttons">
+          <a href="#projects" className="btn btn-primary">View My Work</a>
+          <a href="#contact" className="btn btn-secondary">Get In Touch</a>
         </div>
       </section>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+      {/* 3. ABOUT SECTION */}
+      <section id="about" className="section">
+        <h2>About Me</h2>
+        <p>
+          I am passionate about creating impactful digital solutions combining robust software engineering 
+          practices with cutting-edge Artificial Intelligence. 
+        </p>
+        <div className="skills-tags">
+          <span>React</span>
+          <span>JavaScript</span>
+          <span>Python</span>
+          <span>Artificial Intelligence</span>
+          <span>Vite & Vercel</span>
+        </div>
+      </section>
+
+      {/* 4. PROJECTS SECTION */}
+      <section id="projects" className="section">
+        <h2>Featured Projects</h2>
+        <div className="project-grid">
+          <div className="project-card">
+            <h3>Project Title 1</h3>
+            <p>A brief description of an amazing AI tool or application you built.</p>
+            <span className="tech-stack">React • Python</span>
+          </div>
+          <div className="project-card">
+            <h3>Project Title 2</h3>
+            <p>A beautiful dashboard or frontend web application showcasing clean UI components.</p>
+            <span className="tech-stack">JavaScript • CSS</span>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. CONTACT SECTION */}
+      <section id="contact" className="section contact-section">
+        <h2>Let's Connect</h2>
+        <p>I'm always open to talking about development, AI engineering roles, or collaborations.</p>
+        <div className="contact-links">
+          <a href="mailto:raksha.chandru66@gmail.com">Email Me</a>
+          <a href="https://github.com/raksha-k-c" target="_blank" rel="noreferrer">GitHub Profile</a>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="footer">
+        <p>© 2026 Raksha K C. All rights reserved.</p>
+      </footer>
+    </div>
   )
 }
 
