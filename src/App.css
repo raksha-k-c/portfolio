@@ -509,3 +509,72 @@ body {
   margin: 0.3rem 0 0.8rem 0;
   font-weight: 600;
 }
+/* ==========================================================================
+   MOBILE & TABLET RESPONSIVENESS (THE FIXED VIEW)
+   ========================================================================== */
+
+@media (max-width: 968px) {
+  /* Stack the Hero items vertically */
+  .hero-3d-container {
+    flex-direction: column-reverse; /* Puts your photo/3D visual on top, text below */
+    text-align: center;
+    gap: 2rem;
+    padding-top: 6rem; /* Gives space below the fixed navbar */
+  }
+
+  .hero-text-side {
+    max-width: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Scale down the massive title so it fits beautifully on one screen */
+  .main-title {
+    font-size: 2.2rem;
+    line-height: 1.3;
+    margin-top: 1rem;
+  }
+
+  .tagline {
+    font-size: 1rem;
+    margin: 1.5rem auto;
+    max-width: 500px;
+  }
+
+  /* Center the CTA buttons on mobile */
+  .cta-buttons-3d {
+    justify-content: center;
+    width: 100%;
+    gap: 1rem;
+  }
+
+  /* Scale down the 3D card wrapper so it doesn't overflow */
+  .scene3d {
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .card3d img {
+    max-height: 320px;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-title {
+    font-size: 1.8rem;
+  }
+
+  .cta-buttons-3d {
+    flex-direction: column; /* Stacks buttons on ultra-small screens */
+    align-items: center;
+  }
+
+  .btn-3d {
+    width: 100%;
+    max-width: 260px;
+    text-align: center;
+  }
+}
