@@ -16,6 +16,27 @@ function App() {
       canvas.width = canvas.parentElement.offsetWidth
       canvas.height = canvas.parentElement.offsetHeight
     }
+    useEffect(() => {
+  // Prevent right-clicking on the website
+  const handleContextMenu = (e) => {
+    e.preventDefault();
+  };
+
+  // Prevent dragging images or text
+  const handleDragStart = (e) => {
+    if (e.target.tagName === 'IMG') {
+      e.preventDefault();
+    }
+  };
+
+  document.addEventListener('contextmenu', handleContextMenu);
+  document.addEventListener('dragstart', handleDragStart);
+
+  return () => {
+    document.removeEventListener('contextmenu', handleContextMenu);
+    document.removeEventListener('dragstart', handleDragStart);
+  };
+}, []);
     resizeCanvas()
     window.addEventListener('resize', resizeCanvas)
 
