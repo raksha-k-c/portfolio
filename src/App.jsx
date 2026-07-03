@@ -6,6 +6,9 @@ function App() {
   const canvasRef = useRef(null)
 
   useEffect(() => {
+    // Dynamically update browser tab title to look completely clean and secure
+    document.title = "Raksha K C | SDE"
+
     const canvas = canvasRef.current
     const ctx = canvas.getContext('2d')
 
@@ -101,14 +104,14 @@ function App() {
 
   return (
     <div className="portfolio-container">
-      {/* NAVIGATION BAR */}
+      {/* IMPROVED MOBILE-SAFE NAVBAR */}
       <header className="navbar">
         <div className="logo">Raksha K C</div>
-        <nav>
+        <nav className="nav-links">
           <a href="#hero">Home</a>
           <a href="#about">About</a>
           <a href="#experience">Experience</a>
-          <a href="#talent">Music & Dance</a>
+          <a href="#talent">Art</a>
           <a href="#contact">Contact</a>
         </nav>
       </header>
@@ -268,7 +271,7 @@ function App() {
         <h2>Interlock Pipelines</h2>
         <p>Looking to ship features, accelerate builds, or collaborate on creative systems engineering? Let's connect.</p>
         <div className="contact-links">
-          <a href="mailto:raksha.chandru66@gmail.com" className="btn-3d btn-primary-3d">Ping Me</a>
+          <a href="mailto:your-email@example.com" className="btn-3d btn-primary-3d">Ping Me</a>
           <a href="https://github.com/raksha-k-c" target="_blank" rel="noreferrer" className="btn-3d btn-secondary-3d">GitHub Core</a>
         </div>
       </section>

@@ -510,16 +510,35 @@ body {
   font-weight: 600;
 }
 /* ==========================================================================
-   MOBILE & TABLET RESPONSIVENESS (THE FIXED VIEW)
+   MOBILE UTILITIES & HEADER RESET
    ========================================================================== */
 
 @media (max-width: 968px) {
-  /* Stack the Hero items vertically */
+  /* Prevent header link crowding */
+  .navbar {
+    padding: 0.8rem 1.2rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    height: auto;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-links a {
+    font-size: 0.85rem;
+  }
+
+  /* Stack the Hero items cleanly */
   .hero-3d-container {
-    flex-direction: column-reverse; /* Puts your photo/3D visual on top, text below */
+    flex-direction: column-reverse;
     text-align: center;
-    gap: 2rem;
-    padding-top: 6rem; /* Gives space below the fixed navbar */
+    gap: 1.5rem;
+    padding-top: 7rem; /* Prevents text from slipping behind the mobile header */
   }
 
   .hero-text-side {
@@ -529,52 +548,58 @@ body {
     flex-direction: column;
   }
 
-  /* Scale down the massive title so it fits beautifully on one screen */
   .main-title {
-    font-size: 2.2rem;
+    font-size: 2rem;
     line-height: 1.3;
     margin-top: 1rem;
   }
 
   .tagline {
-    font-size: 1rem;
-    margin: 1.5rem auto;
-    max-width: 500px;
+    font-size: 0.95rem;
+    margin: 1.2rem auto;
+    max-width: 100%;
+    padding: 0 10px;
   }
 
-  /* Center the CTA buttons on mobile */
   .cta-buttons-3d {
     justify-content: center;
     width: 100%;
     gap: 1rem;
   }
 
-  /* Scale down the 3D card wrapper so it doesn't overflow */
+  /* Adjust tracks grid so elements don't get squished */
+  .tracks-section {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 2rem 1rem;
+  }
+
   .scene3d {
     width: 100%;
-    max-width: 280px;
+    max-width: 260px;
     margin: 0 auto;
   }
 
   .card3d img {
-    max-height: 320px;
+    max-height: 280px;
     object-fit: cover;
+    border-radius: 12px;
   }
 }
 
 @media (max-width: 480px) {
   .main-title {
-    font-size: 1.8rem;
+    font-size: 1.65rem;
   }
 
   .cta-buttons-3d {
-    flex-direction: column; /* Stacks buttons on ultra-small screens */
+    flex-direction: column;
     align-items: center;
   }
 
   .btn-3d {
     width: 100%;
-    max-width: 260px;
+    max-width: 240px;
     text-align: center;
   }
 }
