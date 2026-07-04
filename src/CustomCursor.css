@@ -1,0 +1,43 @@
+.cc-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  margin-left: -5px;
+  margin-top: -5px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 10px 1px color-mix(in srgb, var(--cyan) 70%, transparent);
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0;
+  will-change: transform;
+  transition: width 0.18s ease, height 0.18s ease, margin 0.18s ease,
+    background 0.18s ease, opacity 0.2s ease;
+}
+
+/* softly grows over interactive elements */
+.cc-dot--grow {
+  width: 20px;
+  height: 20px;
+  margin-left: -10px;
+  margin-top: -10px;
+  background: color-mix(in srgb, var(--cyan) 55%, transparent);
+}
+
+/* hide native cursor only on precise pointers */
+@media (hover: hover) and (pointer: fine) {
+  body.cc-active,
+  body.cc-active a,
+  body.cc-active button,
+  body.cc-active .btn,
+  body.cc-active input,
+  body.cc-active textarea {
+    cursor: none;
+  }
+}
+
+@media (hover: none) {
+  .cc-dot { display: none; }
+}

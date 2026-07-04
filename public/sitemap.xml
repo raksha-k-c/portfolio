@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://rakshakc.xyz/</loc><priority>1.0</priority></url>
+  <url><loc>https://rakshakc.xyz/about</loc><priority>0.8</priority></url>
+  <url><loc>https://rakshakc.xyz/projects</loc><priority>0.9</priority></url>
+  <url><loc>https://rakshakc.xyz/projects/portfolio-website</loc><priority>0.6</priority></url>
+  <url><loc>https://rakshakc.xyz/projects/healthcare-dashboard</loc><priority>0.6</priority></url>
+  <url><loc>https://rakshakc.xyz/projects/smart-injector</loc><priority>0.6</priority></url>
+  <url><loc>https://rakshakc.xyz/blog</loc><priority>0.9</priority></url>
+  <url><loc>https://rakshakc.xyz/blog/building-ai-enabled-smart-auto-injector</loc><priority>0.6</priority></url>
+  <url><loc>https://rakshakc.xyz/blog/healthcare-management-system-java-swing</loc><priority>0.6</priority></url>
+  <url><loc>https://rakshakc.xyz/blog/from-curiosity-to-code</loc><priority>0.6</priority></url>
+  <url><loc>https://rakshakc.xyz/blog/how-i-use-ai-as-a-student-developer</loc><priority>0.6</priority></url>
+  <url><loc>https://rakshakc.xyz/skills</loc><priority>0.7</priority></url>
+  <url><loc>https://rakshakc.xyz/experience</loc><priority>0.7</priority></url>
+  <url><loc>https://rakshakc.xyz/achievements</loc><priority>0.7</priority></url>
+  <url><loc>https://rakshakc.xyz/now</loc><priority>0.6</priority></url>
+  <url><loc>https://rakshakc.xyz/contact</loc><priority>0.8</priority></url>
+</urlset>

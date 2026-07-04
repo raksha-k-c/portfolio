@@ -1,0 +1,114 @@
+.cg-stage {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1200px;
+  user-select: none;
+}
+
+/* soft neon aura behind the character */
+.cg-glow {
+  position: absolute;
+  inset: 8%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 50% 45%,
+    rgba(138, 43, 226, 0.35),
+    rgba(0, 255, 255, 0.12) 45%,
+    transparent 70%
+  );
+  filter: blur(18px);
+  animation: cg-pulse 5s ease-in-out infinite;
+  z-index: 0;
+}
+
+.cg-float {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+  animation: cg-breathe 4.5s ease-in-out infinite;
+}
+
+.cg-svg {
+  width: 82%;
+  height: auto;
+  overflow: visible;
+  filter: drop-shadow(-8px 16px 22px rgba(0, 0, 0, 0.55));
+}
+
+/* eyelids: closed = full height, open = 0 */
+.cg-lid {
+  transition: height 0.09s ease, y 0.09s ease;
+  height: 0;
+}
+.cg-eyes--blink .cg-lid {
+  height: 40px;
+}
+
+/* gentle hair sway */
+.cg-hair-front,
+.cg-hair-back {
+  transform-box: fill-box;
+  transform-origin: 50% 0%;
+  animation: cg-sway 6s ease-in-out infinite;
+}
+.cg-hair-back {
+  animation-duration: 7.5s;
+}
+
+/* waving arm */
+.cg-arm {
+  transform-box: fill-box;
+  transform-origin: 12% 92%;
+  transform: rotate(6deg);
+  transition: transform 0.4s ease;
+}
+.cg-arm--wave {
+  animation: cg-wave 0.7s ease-in-out infinite;
+}
+
+@keyframes cg-breathe {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-10px) scale(1.012); }
+}
+
+@keyframes cg-sway {
+  0%, 100% { transform: rotate(-1.5deg); }
+  50% { transform: rotate(1.5deg); }
+}
+
+@keyframes cg-wave {
+  0%, 100% { transform: rotate(-8deg); }
+  50% { transform: rotate(28deg); }
+}
+
+@keyframes cg-pulse {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.06); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cg-float,
+  .cg-glow,
+  .cg-hair-front,
+  .cg-hair-back,
+  .cg-arm--wave {
+    animation: none;
+  }
+}
+
+@media (max-width: 968px) {
+  .cg-stage {
+    max-width: 260px;
+  }
+}
