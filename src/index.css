@@ -152,3 +152,27 @@ code {
   html { scroll-behavior: auto; }
   * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
 }
+/* Mobile Navigation Drawer Fix */
+.nav__drawer {
+  position: fixed;
+  top: 70px; /* Adjust this to match the height of your navbar */
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 70px);
+  
+  /* Forces it to layer on top of your landing page content */
+  z-index: 999; 
+  
+  /* Explicit backgrounds mapping to your theme setup */
+  background-color: #ffffff; 
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+/* If you have a .dark class applied to the body/html for dark mode */
+.dark .nav__drawer {
+  background-color: #121212; /* Adjust to match your dark background color */
+}
