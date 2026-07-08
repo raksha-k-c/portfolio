@@ -19,8 +19,8 @@ export const posts = [
       'How embedded systems, sensors, and automation came together in a healthcare proof-of-concept that follows a simple pipeline: Sense → Compute → Actuate.',
     category: 'Embedded Systems',
     tags: ['ESP32', 'Healthcare', 'Embedded Systems'],
-    date: '2026-02-10',
-    readingTime: 9,
+    date: '2026-07-07',
+    readingTime: 8,
     cover: 'grad-3',
     featured: true,
     content: [
@@ -78,8 +78,8 @@ export const posts = [
       'How I built a modular hospital desktop app in Java Swing that brings patient records, appointments, billing, pharmacy, and analytics into one interface.',
     category: 'Java',
     tags: ['Java', 'Swing', 'Healthcare'],
-    date: '2025-11-20',
-    readingTime: 10,
+    date: '2026-07-08',
+    readingTime: 6,
     cover: 'grad-2',
     featured: true,
     content: [
@@ -150,8 +150,8 @@ export const posts = [
       'How a simple question about how websites are made led me from HTML curiosity into software development as something I want to build a future around.',
     category: 'Web Development',
     tags: ['Learning', 'Journey', 'Career'],
-    date: '2025-08-15',
-    readingTime: 8,
+    date: '2026-07-06',
+    readingTime: 5,
     cover: 'grad-1',
     featured: true,
     content: [
@@ -183,8 +183,8 @@ export const posts = [
       'AI has changed how I learn, not whether I learn. Here is how I use it for debugging, breaking down concepts, brainstorming, and writing, without skipping the work.',
     category: 'Artificial Intelligence',
     tags: ['AI', 'Learning', 'Productivity'],
-    date: '2026-04-05',
-    readingTime: 9,
+    date: '2026-07-05',
+    readingTime: 6,
     cover: 'grad-4',
     featured: true,
     content: [
