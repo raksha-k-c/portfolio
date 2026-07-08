@@ -1,3 +1,7 @@
+import hero3D from '../assets/hero-3d.png'
+import dashboardMock from '../assets/dashboard-mock.png'
+import injectorMock from '../assets/injector-mock.png'
+
 export const projects = [
   {
     slug: 'portfolio-website',
@@ -10,6 +14,11 @@ export const projects = [
     tech: ['React', 'Vite', 'React Router', 'Canvas', 'CSS'],
     tags: ['Web Development', 'Frontend'],
     links: { github: 'https://github.com/raksha-k-c/portfolio', demo: 'https://rakshakc.xyz' },
+    // Image visual styles mapping
+    image: hero3D,
+    bgClass: "portfolio-bg",
+    layerClass: "grid-overlay-layer",
+    imgClass: "asset-avatar",
     problem:
       'I needed a single home for my projects, writing, and learning journey that felt personal and premium rather than a cookie-cutter template, and that I could extend for years without friction.',
     solution:
@@ -40,6 +49,11 @@ export const projects = [
     tech: ['Java 21', 'Java Swing', 'CardLayout', 'Swing Charts'],
     tags: ['Healthcare', 'Java', 'Desktop Application'],
     links: { github: 'https://github.com/raksha-k-c/healthcare_analytics_dashboard', demo: '' },
+    // Image visual styles mapping
+    image: dashboardMock,
+    bgClass: "dashboard-bg",
+    layerClass: "radial-glow-layer",
+    imgClass: "asset-ui-mock",
     problem:
       'Small clinics and hospital teams often rely on scattered records for patients, doctors, appointments, billing, and pharmacy inventory, which makes day to day operations slow and error prone.',
     solution:
@@ -70,6 +84,11 @@ export const projects = [
     tech: ['ESP32', 'C++', 'HC-SR04 Ultrasonic', 'A4988 Stepper Driver', 'OLED'],
     tags: ['Embedded Systems', 'Medical Electronics'],
     links: { github: 'https://github.com/raksha-k-c/ai-enabled-smart-injector-prototype', demo: '' },
+    // Image visual styles mapping
+    image: injectorMock,
+    bgClass: "injector-bg",
+    layerClass: "hardware-grid-layer",
+    imgClass: "asset-hardware-render",
     problem:
       'Manual injections risk inconsistent depth, stroke length, and speed, which can affect dosing accuracy and patient comfort, especially outside controlled clinical settings.',
     solution:

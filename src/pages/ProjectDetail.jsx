@@ -56,14 +56,6 @@ export default function ProjectDetail() {
       <Block title="Challenges">{project.challenges}</Block>
       <Block title="Lessons learned">{project.lessons}</Block>
 
-      <Block title="Screenshots">
-        <div className="grid grid--3">
-          {['grad-1', 'grad-3', 'grad-4'].map((g, i) => (
-            <div key={i} className={`grad-cover ${g}`} style={{ height: 140, borderRadius: 'var(--r-sm)' }} />
-          ))}
-        </div>
-        <p className="form-note">Placeholder previews that you can swap for real screenshots when ready.</p>
-      </Block>
 
       <div className="card cta-band reveal">
         <span className="eyebrow">Next project</span>
