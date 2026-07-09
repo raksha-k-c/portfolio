@@ -162,10 +162,10 @@ function getBotReply(userText, memory) {
   let best = null;
   let bestScore = 0;
   for (const intent of INTENTS) {
-    const score = intent.keywords.reduce(
-      (acc, kw) => (text.includes(kw) ? acc + kw.split(" ").length : acc),
-      0
-    );
+    const score = intent.keywords.reduce((acc, kw) => {
+  const pattern = new RegExp(`\\b${kw.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`, "i");
+  return pattern.test(text) ? acc + kw.split(" ").length : acc;
+}, 0);
     if (score > bestScore) {
       bestScore = score;
       best = intent;
