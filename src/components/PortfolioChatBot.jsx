@@ -38,7 +38,7 @@ const PROFILE = {
   funFact: "outside of code I enjoy [hobby] — ask me about it!",
   resumeLink: "#",
   contact: {
-    email: "you@example.com",
+    email: "Raksha.chandru66@gmail.com",
     linkedin: "https://linkedin.com/in/your-handle",
     github: "https://github.com/raksha-k-c",
   },
@@ -54,6 +54,26 @@ const INTENTS = [
     replies: [
       `Hey! 👋 I'm ${PROFILE.name}. Ask me about my work, skills, or projects — happy to chat!`,
       `Hi there! Great to meet you — I'm ${PROFILE.name}. What would you like to know?`,
+    ],
+  },
+  {
+    id: "wellbeing",
+    keywords: [
+      "how are you",
+      "how're you",
+      "hows it going",
+      "how's it going",
+      "how you doing",
+      "how are u",
+      "you good",
+      "you okay",
+      "whats up",
+      "what's up",
+    ],
+    replies: [
+      "I'm doing good, thanks for asking! How about you?",
+      "Pretty great, actually! What about you, how's your day going?",
+      "All good here! Thanks for checking in 😊 How are you doing?",
     ],
   },
   {

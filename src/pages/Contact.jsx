@@ -65,7 +65,7 @@ export default function Contact() {
             </div>
             <button type="submit" className="btn btn--primary" style={{ width: '100%' }}>Send message</button>
             {sent && <p className="form-note">Opening your mail app… if nothing happens, email me directly at {profile.email}.</p>}
-            <p className="form-note">This form opens your email client (no backend needed in this stack).</p>
+            <p className="form-note"></p>
           </form>
         </div>
 
