@@ -9,6 +9,7 @@ import StarField from './StarField'
 import Loader from './components/Loader'
 import { useSmoothScroll } from './hooks'
 
+import PortfolioChatBot from './components/PortfolioChatBot'
 import Home from './pages/Home'
 import About from './pages/About'
 import Projects from './pages/Projects'
@@ -83,6 +84,7 @@ function Shell() {
       </main>
 
       <Footer />
+      <PortfolioChatBot />
     </div>
   )
 }
