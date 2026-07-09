@@ -10,7 +10,7 @@
   background: var(--cyan);
   box-shadow: 0 0 10px 1px color-mix(in srgb, var(--cyan) 70%, transparent);
   pointer-events: none;
-  z-index: 9999;
+  z-index: 999999;
   opacity: 0;
   will-change: transform;
   transition: width 0.18s ease, height 0.18s ease, margin 0.18s ease,
