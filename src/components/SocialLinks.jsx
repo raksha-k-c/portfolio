@@ -39,7 +39,7 @@ export default function SocialLinks({ className = '', style }) {
       {links.map((l) => (
         <a
           key={l.key}
-          className="social-link"
+          className={`social-link social-link--${l.key}`}
           href={l.href}
           target="_blank"
           rel="noreferrer noopener"

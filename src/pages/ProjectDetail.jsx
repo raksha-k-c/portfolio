@@ -3,6 +3,7 @@ import SEO from '../components/SEO'
 import { useReveal } from '../hooks'
 import { getProject, projects } from '../data/projects'
 import NotFound from './NotFound'
+import CartoonGirl from '../CartoonGirl'
 
 const Block = ({ title, children }) => (
   <section className="section reveal" style={{ padding: '1.5rem 0' }}>
@@ -30,9 +31,47 @@ export default function ProjectDetail() {
       />
       <Link to="/projects" style={{ color: 'var(--text-muted)' }}>← All projects</Link>
 
-      <div className={`grad-cover ${project.cover}`} style={{ height: 260, borderRadius: 'var(--r-lg)', margin: '1.5rem 0 2rem', display: 'flex', alignItems: 'flex-end', padding: '1.5rem' }}>
-        <span className="chip">{project.year}</span>
-      </div>
+      {project.slug === 'portfolio-website' ? (
+        <div
+          style={{
+            height: 260,
+            borderRadius: 'var(--r-lg)',
+            margin: '1.5rem 0 2rem',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'flex-end',
+            padding: '0 2rem',
+            position: 'relative',
+            border: '1px solid var(--line, rgba(255,255,255,0.08))',
+            overflow: 'hidden',
+          }}
+        >
+          <span className="chip" style={{ position: 'absolute', left: '1.5rem', bottom: '1.5rem' }}>{project.year}</span>
+          <div style={{ transform: 'scale(0.85)', transformOrigin: 'right center' }}>
+            <CartoonGirl />
+          </div>
+        </div>
+      ) : project.coverImage ? (
+        <div
+          style={{
+            height: 260,
+            borderRadius: 'var(--r-lg)',
+            margin: '1.5rem 0 2rem',
+            display: 'flex',
+            alignItems: 'flex-end',
+            padding: '1.5rem',
+            backgroundImage: `url(${project.coverImage})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        >
+          <span className="chip">{project.year}</span>
+        </div>
+      ) : (
+        <div className={`grad-cover ${project.cover}`} style={{ height: 260, borderRadius: 'var(--r-lg)', margin: '1.5rem 0 2rem', display: 'flex', alignItems: 'flex-end', padding: '1.5rem' }}>
+          <span className="chip">{project.year}</span>
+        </div>
+      )}
 
       <h1>{project.title}</h1>
       <p className="section-sub" style={{ maxWidth: 720 }}>{project.tagline}</p>

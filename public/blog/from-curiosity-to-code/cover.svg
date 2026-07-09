@@ -1,0 +1,48 @@
+<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4f46e5"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg1)"/>
+  <rect width="1200" height="630" fill="url(#glow1)"/>
+
+  <g fill="#ffffff" opacity="0.14">
+    <circle cx="80" cy="80" r="2.5"/><circle cx="1120" cy="70" r="2"/><circle cx="1050" cy="560" r="2.5"/>
+    <circle cx="70" cy="540" r="2"/><circle cx="600" cy="60" r="2"/><circle cx="600" cy="580" r="2"/>
+  </g>
+
+  <!-- winding journey path -->
+  <path d="M 110 480 C 260 480 260 340 410 340 C 560 340 560 200 710 200 C 860 200 860 150 1090 150"
+        fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-dasharray="2 22" opacity="0.85"/>
+
+  <!-- waypoint markers -->
+  <circle cx="110" cy="480" r="14" fill="#ffffff"/>
+  <circle cx="410" cy="340" r="10" fill="#ffffff" opacity="0.9"/>
+  <circle cx="710" cy="200" r="10" fill="#ffffff" opacity="0.9"/>
+  <circle cx="1090" cy="150" r="16" fill="#ffffff"/>
+
+  <!-- start icon: a spark/curiosity mark -->
+  <g transform="translate(110 480)" stroke="#4f46e5" stroke-width="5" stroke-linecap="round">
+    <line x1="0" y1="-26" x2="0" y2="-40"/>
+    <line x1="18" y1="-18" x2="28" y2="-28"/>
+    <line x1="-18" y1="-18" x2="-28" y2="-28"/>
+  </g>
+
+  <!-- end icon: code brackets -->
+  <g transform="translate(1090 150)" fill="none" stroke="#06b6d4" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M -8 -24 L -24 0 L -8 24"/>
+    <path d="M 8 -24 L 24 0 L 8 24"/>
+  </g>
+
+  <!-- large translucent code-bracket watermark, right side -->
+  <g transform="translate(950 400)" fill="none" stroke="#ffffff" stroke-width="10" opacity="0.18" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M -30 -90 L -90 0 L -30 90"/>
+    <path d="M 30 -90 L 90 0 L 30 90"/>
+  </g>
+</svg>

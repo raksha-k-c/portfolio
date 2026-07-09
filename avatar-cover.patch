@@ -1,0 +1,64 @@
+From f507019253e0eee561f568d5311811bd385c773e Mon Sep 17 00:00:00 2001
+From: Claude <assistant@local>
+Date: Thu, 9 Jul 2026 07:52:31 +0000
+Subject: [PATCH] feat: waving avatar in portfolio-website project cover
+
+Special-cases the portfolio-website project's hero banner: instead of
+the flat gradient block, it now shows the interactive CartoonGirl
+avatar (same one from the home page) aligned to the right, over a
+transparent background so the site's global starfield shows through
+naturally. Other projects keep their original gradient covers.
+---
+ src/pages/ProjectDetail.jsx | 29 ++++++++++++++++++++++++++---
+ 1 file changed, 26 insertions(+), 3 deletions(-)
+
+diff --git a/src/pages/ProjectDetail.jsx b/src/pages/ProjectDetail.jsx
+index 3d641a4..5ed4537 100644
+--- a/src/pages/ProjectDetail.jsx
++++ b/src/pages/ProjectDetail.jsx
+@@ -3,6 +3,7 @@ import SEO from '../components/SEO'
+ import { useReveal } from '../hooks'
+ import { getProject, projects } from '../data/projects'
+ import NotFound from './NotFound'
++import CartoonGirl from '../CartoonGirl'
+ 
+ const Block = ({ title, children }) => (
+   <section className="section reveal" style={{ padding: '1.5rem 0' }}>
+@@ -30,9 +31,31 @@ export default function ProjectDetail() {
+       />
+       <Link to="/projects" style={{ color: 'var(--text-muted)' }}>← All projects</Link>
+ 
+-      <div className={`grad-cover ${project.cover}`} style={{ height: 260, borderRadius: 'var(--r-lg)', margin: '1.5rem 0 2rem', display: 'flex', alignItems: 'flex-end', padding: '1.5rem' }}>
+-        <span className="chip">{project.year}</span>
+-      </div>
++      {project.slug === 'portfolio-website' ? (
++        <div
++          style={{
++            height: 260,
++            borderRadius: 'var(--r-lg)',
++            margin: '1.5rem 0 2rem',
++            display: 'flex',
++            alignItems: 'center',
++            justifyContent: 'flex-end',
++            padding: '0 2rem',
++            position: 'relative',
++            border: '1px solid var(--line, rgba(255,255,255,0.08))',
++            overflow: 'hidden',
++          }}
++        >
++          <span className="chip" style={{ position: 'absolute', left: '1.5rem', bottom: '1.5rem' }}>{project.year}</span>
++          <div style={{ transform: 'scale(0.85)', transformOrigin: 'right center' }}>
++            <CartoonGirl />
++          </div>
++        </div>
++      ) : (
++        <div className={`grad-cover ${project.cover}`} style={{ height: 260, borderRadius: 'var(--r-lg)', margin: '1.5rem 0 2rem', display: 'flex', alignItems: 'flex-end', padding: '1.5rem' }}>
++          <span className="chip">{project.year}</span>
++        </div>
++      )}
+ 
+       <h1>{project.title}</h1>
+       <p className="section-sub" style={{ maxWidth: 720 }}>{project.tagline}</p>
+-- 
+2.43.0
+

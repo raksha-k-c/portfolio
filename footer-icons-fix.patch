@@ -1,0 +1,55 @@
+From dbf3ded6b93ac2fa452747c3960f8a2eaa1ca339 Mon Sep 17 00:00:00 2001
+From: Claude <assistant@local>
+Date: Thu, 9 Jul 2026 11:00:53 +0000
+Subject: [PATCH] fix: balance footer social icon sizes
+
+The X (Twitter) logo has significantly more empty padding baked into
+its path than GitHub's or LinkedIn's, so at identical pixel size it
+read visibly smaller/off-balance despite all three buttons being the
+same 42x42 box. Nudged X up to 21px and GitHub down slightly to 17px
+so all three feel optically centered and equal-weight.
+---
+ src/App.css                    | 13 +++++++++++++
+ src/components/SocialLinks.jsx |  2 +-
+ 2 files changed, 14 insertions(+), 1 deletion(-)
+
+diff --git a/src/App.css b/src/App.css
+index b6389ab..f8ae5f9 100644
+--- a/src/App.css
++++ b/src/App.css
+@@ -558,6 +558,19 @@
+   display: block;
+ }
+ 
++/* Brand marks don't fill their viewBox equally, so identical px sizing
++   makes some read smaller than others. Nudge X up slightly and
++   GitHub down slightly so all three feel visually balanced. */
++.social-link--twitter svg {
++  width: 21px;
++  height: 21px;
++}
++
++.social-link--github svg {
++  width: 17px;
++  height: 17px;
++}
++
+ .social-link:hover {
+   color: var(--cyan);
+   border-color: color-mix(in srgb, var(--cyan) 55%, transparent);
+diff --git a/src/components/SocialLinks.jsx b/src/components/SocialLinks.jsx
+index 6c89c76..cae4d7f 100644
+--- a/src/components/SocialLinks.jsx
++++ b/src/components/SocialLinks.jsx
+@@ -39,7 +39,7 @@ export default function SocialLinks({ className = '', style }) {
+       {links.map((l) => (
+         <a
+           key={l.key}
+-          className="social-link"
++          className={`social-link social-link--${l.key}`}
+           href={l.href}
+           target="_blank"
+           rel="noreferrer noopener"
+-- 
+2.43.0
+

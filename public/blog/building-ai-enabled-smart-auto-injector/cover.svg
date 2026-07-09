@@ -1,0 +1,68 @@
+<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0ea5e9"/>
+      <stop offset="100%" stop-color="#22d3ee"/>
+    </linearGradient>
+    <radialGradient id="glow3" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg3)"/>
+  <rect width="1200" height="630" fill="url(#glow3)"/>
+
+  <!-- dot grid texture -->
+  <g fill="#ffffff" opacity="0.14">
+    <circle cx="80" cy="70" r="2.5"/><circle cx="160" cy="120" r="2"/><circle cx="1120" cy="90" r="2.5"/>
+    <circle cx="1050" cy="180" r="2"/><circle cx="60" cy="540" r="2.5"/><circle cx="140" cy="580" r="2"/>
+    <circle cx="1130" cy="560" r="2.5"/><circle cx="1060" cy="500" r="2"/><circle cx="900" cy="60" r="2"/>
+    <circle cx="300" cy="50" r="2"/><circle cx="980" cy="580" r="2"/><circle cx="400" cy="580" r="2"/>
+  </g>
+
+  <!-- ultrasonic sensor waves, top-left -->
+  <g stroke="#ffffff" fill="none" stroke-width="4" opacity="0.55">
+    <path d="M 130 260 a 60 60 0 0 1 0 -84" stroke-linecap="round"/>
+    <path d="M 110 250 a 84 84 0 0 1 0 -104" stroke-linecap="round" opacity="0.7"/>
+    <path d="M 90 245 a 108 108 0 0 1 0 -124" stroke-linecap="round" opacity="0.5"/>
+  </g>
+  <circle cx="150" cy="218" r="10" fill="#ffffff"/>
+
+  <!-- circuit trace pattern, right side -->
+  <g stroke="#ffffff" stroke-width="3" fill="none" opacity="0.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 960 120 h 90 v 60 h 60"/>
+    <path d="M 1000 260 h -50 v 80 h 100 v 50"/>
+    <path d="M 1080 400 h -70 v -50"/>
+    <circle cx="1110" cy="180" r="6" fill="#ffffff"/>
+    <circle cx="950" cy="120" r="6" fill="#ffffff"/>
+    <circle cx="950" cy="340" r="6" fill="#ffffff"/>
+    <circle cx="1110" cy="400" r="6" fill="#ffffff"/>
+  </g>
+
+  <!-- central syringe / injector illustration -->
+  <g transform="translate(600 315)">
+    <!-- barrel -->
+    <rect x="-140" y="-34" width="220" height="68" rx="14" fill="#ffffff" opacity="0.95"/>
+    <!-- plunger rod -->
+    <rect x="-230" y="-10" width="96" height="20" rx="10" fill="#ffffff" opacity="0.95"/>
+    <rect x="-250" y="-26" width="24" height="52" rx="6" fill="#ffffff" opacity="0.95"/>
+    <!-- fill graduation marks -->
+    <g stroke="#0ea5e9" stroke-width="3" opacity="0.6">
+      <line x1="-100" y1="-24" x2="-100" y2="24"/>
+      <line x1="-60" y1="-24" x2="-60" y2="24"/>
+      <line x1="-20" y1="-24" x2="-20" y2="24"/>
+      <line x1="20" y1="-24" x2="20" y2="24"/>
+    </g>
+    <!-- needle -->
+    <path d="M 80 -8 L 210 -3 L 210 3 L 80 8 Z" fill="#ffffff" opacity="0.95"/>
+    <!-- needle tip glow -->
+    <circle cx="212" cy="0" r="6" fill="#ffffff"/>
+  </g>
+
+  <!-- subtle depth-measurement arrow beneath -->
+  <g transform="translate(600 400)" stroke="#ffffff" stroke-width="3" opacity="0.55" stroke-linecap="round">
+    <line x1="-140" y1="0" x2="140" y2="0"/>
+    <line x1="-140" y1="-8" x2="-140" y2="8"/>
+    <line x1="140" y1="-8" x2="140" y2="8"/>
+  </g>
+</svg>

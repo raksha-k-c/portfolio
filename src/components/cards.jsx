@@ -68,7 +68,14 @@ export function BlogCard({ post }) {
   const date = new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
   return (
     <Link to={`/blog/${post.slug}`} className="card tile reveal">
-      <div className={`tile__cover grad-cover ${post.cover}`}>
+      <div
+        className={post.coverImage ? 'tile__cover' : `tile__cover grad-cover ${post.cover}`}
+        style={
+          post.coverImage
+            ? { backgroundImage: `url(${post.coverImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }
+            : undefined
+        }
+      >
         <span className="chip chip--accent">{post.category}</span>
       </div>
       <h3>{post.title}</h3>

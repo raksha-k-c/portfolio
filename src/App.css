@@ -558,6 +558,19 @@
   display: block;
 }
 
+/* Brand marks don't fill their viewBox equally, so identical px sizing
+   makes some read smaller than others. Nudge X up slightly and
+   GitHub down slightly so all three feel visually balanced. */
+.social-link--twitter svg {
+  width: 21px;
+  height: 21px;
+}
+
+.social-link--github svg {
+  width: 17px;
+  height: 17px;
+}
+
 .social-link:hover {
   color: var(--cyan);
   border-color: color-mix(in srgb, var(--cyan) 55%, transparent);

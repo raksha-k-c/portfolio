@@ -1,0 +1,374 @@
+From bd368a5814a5142f42b233cc1c947f0f345c703a Mon Sep 17 00:00:00 2001
+From: Claude <assistant@local>
+Date: Thu, 9 Jul 2026 07:21:18 +0000
+Subject: [PATCH] feat: add custom cover illustrations for all blog posts
+
+Generated matching SVG illustrations for each post, themed and
+color-matched to its existing grad-1..4 gradient:
+- smart auto injector: circuit + syringe + ultrasonic waves
+- healthcare Java Swing: dashboard + medical cross + coffee cup
+- from curiosity to code: winding path + code brackets
+- AI as a student developer: neural network + laptop
+
+Wired coverImage into blog.js and used it (with graceful fallback to
+the old gradient) in both the blog listing card and the article hero.
+---
+ .../cover.svg                                 | 68 +++++++++++++++++++
+ public/blog/from-curiosity-to-code/cover.svg  | 48 +++++++++++++
+ .../cover.svg                                 | 60 ++++++++++++++++
+ .../cover.svg                                 | 60 ++++++++++++++++
+ src/components/cards.jsx                      |  9 ++-
+ src/data/blog.js                              |  4 ++
+ src/pages/BlogPost.jsx                        | 16 ++++-
+ 7 files changed, 263 insertions(+), 2 deletions(-)
+ create mode 100644 public/blog/building-ai-enabled-smart-auto-injector/cover.svg
+ create mode 100644 public/blog/from-curiosity-to-code/cover.svg
+ create mode 100644 public/blog/healthcare-management-system-java-swing/cover.svg
+ create mode 100644 public/blog/how-i-use-ai-as-a-student-developer/cover.svg
+
+diff --git a/public/blog/building-ai-enabled-smart-auto-injector/cover.svg b/public/blog/building-ai-enabled-smart-auto-injector/cover.svg
+new file mode 100644
+index 0000000..71d9e52
+--- /dev/null
++++ b/public/blog/building-ai-enabled-smart-auto-injector/cover.svg
+@@ -0,0 +1,68 @@
++<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
++  <defs>
++    <linearGradient id="bg3" x1="0%" y1="0%" x2="100%" y2="100%">
++      <stop offset="0%" stop-color="#0ea5e9"/>
++      <stop offset="100%" stop-color="#22d3ee"/>
++    </linearGradient>
++    <radialGradient id="glow3" cx="50%" cy="50%" r="60%">
++      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.16"/>
++      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
++    </radialGradient>
++  </defs>
++  <rect width="1200" height="630" fill="url(#bg3)"/>
++  <rect width="1200" height="630" fill="url(#glow3)"/>
++
++  <!-- dot grid texture -->
++  <g fill="#ffffff" opacity="0.14">
++    <circle cx="80" cy="70" r="2.5"/><circle cx="160" cy="120" r="2"/><circle cx="1120" cy="90" r="2.5"/>
++    <circle cx="1050" cy="180" r="2"/><circle cx="60" cy="540" r="2.5"/><circle cx="140" cy="580" r="2"/>
++    <circle cx="1130" cy="560" r="2.5"/><circle cx="1060" cy="500" r="2"/><circle cx="900" cy="60" r="2"/>
++    <circle cx="300" cy="50" r="2"/><circle cx="980" cy="580" r="2"/><circle cx="400" cy="580" r="2"/>
++  </g>
++
++  <!-- ultrasonic sensor waves, top-left -->
++  <g stroke="#ffffff" fill="none" stroke-width="4" opacity="0.55">
++    <path d="M 130 260 a 60 60 0 0 1 0 -84" stroke-linecap="round"/>
++    <path d="M 110 250 a 84 84 0 0 1 0 -104" stroke-linecap="round" opacity="0.7"/>
++    <path d="M 90 245 a 108 108 0 0 1 0 -124" stroke-linecap="round" opacity="0.5"/>
++  </g>
++  <circle cx="150" cy="218" r="10" fill="#ffffff"/>
++
++  <!-- circuit trace pattern, right side -->
++  <g stroke="#ffffff" stroke-width="3" fill="none" opacity="0.5" stroke-linecap="round" stroke-linejoin="round">
++    <path d="M 960 120 h 90 v 60 h 60"/>
++    <path d="M 1000 260 h -50 v 80 h 100 v 50"/>
++    <path d="M 1080 400 h -70 v -50"/>
++    <circle cx="1110" cy="180" r="6" fill="#ffffff"/>
++    <circle cx="950" cy="120" r="6" fill="#ffffff"/>
++    <circle cx="950" cy="340" r="6" fill="#ffffff"/>
++    <circle cx="1110" cy="400" r="6" fill="#ffffff"/>
++  </g>
++
++  <!-- central syringe / injector illustration -->
++  <g transform="translate(600 315)">
++    <!-- barrel -->
++    <rect x="-140" y="-34" width="220" height="68" rx="14" fill="#ffffff" opacity="0.95"/>
++    <!-- plunger rod -->
++    <rect x="-230" y="-10" width="96" height="20" rx="10" fill="#ffffff" opacity="0.95"/>
++    <rect x="-250" y="-26" width="24" height="52" rx="6" fill="#ffffff" opacity="0.95"/>
++    <!-- fill graduation marks -->
++    <g stroke="#0ea5e9" stroke-width="3" opacity="0.6">
++      <line x1="-100" y1="-24" x2="-100" y2="24"/>
++      <line x1="-60" y1="-24" x2="-60" y2="24"/>
++      <line x1="-20" y1="-24" x2="-20" y2="24"/>
++      <line x1="20" y1="-24" x2="20" y2="24"/>
++    </g>
++    <!-- needle -->
++    <path d="M 80 -8 L 210 -3 L 210 3 L 80 8 Z" fill="#ffffff" opacity="0.95"/>
++    <!-- needle tip glow -->
++    <circle cx="212" cy="0" r="6" fill="#ffffff"/>
++  </g>
++
++  <!-- subtle depth-measurement arrow beneath -->
++  <g transform="translate(600 400)" stroke="#ffffff" stroke-width="3" opacity="0.55" stroke-linecap="round">
++    <line x1="-140" y1="0" x2="140" y2="0"/>
++    <line x1="-140" y1="-8" x2="-140" y2="8"/>
++    <line x1="140" y1="-8" x2="140" y2="8"/>
++  </g>
++</svg>
+diff --git a/public/blog/from-curiosity-to-code/cover.svg b/public/blog/from-curiosity-to-code/cover.svg
+new file mode 100644
+index 0000000..f8c0260
+--- /dev/null
++++ b/public/blog/from-curiosity-to-code/cover.svg
+@@ -0,0 +1,48 @@
++<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
++  <defs>
++    <linearGradient id="bg1" x1="0%" y1="0%" x2="100%" y2="100%">
++      <stop offset="0%" stop-color="#4f46e5"/>
++      <stop offset="100%" stop-color="#06b6d4"/>
++    </linearGradient>
++    <radialGradient id="glow1" cx="30%" cy="30%" r="70%">
++      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.16"/>
++      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
++    </radialGradient>
++  </defs>
++  <rect width="1200" height="630" fill="url(#bg1)"/>
++  <rect width="1200" height="630" fill="url(#glow1)"/>
++
++  <g fill="#ffffff" opacity="0.14">
++    <circle cx="80" cy="80" r="2.5"/><circle cx="1120" cy="70" r="2"/><circle cx="1050" cy="560" r="2.5"/>
++    <circle cx="70" cy="540" r="2"/><circle cx="600" cy="60" r="2"/><circle cx="600" cy="580" r="2"/>
++  </g>
++
++  <!-- winding journey path -->
++  <path d="M 110 480 C 260 480 260 340 410 340 C 560 340 560 200 710 200 C 860 200 860 150 1090 150"
++        fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-dasharray="2 22" opacity="0.85"/>
++
++  <!-- waypoint markers -->
++  <circle cx="110" cy="480" r="14" fill="#ffffff"/>
++  <circle cx="410" cy="340" r="10" fill="#ffffff" opacity="0.9"/>
++  <circle cx="710" cy="200" r="10" fill="#ffffff" opacity="0.9"/>
++  <circle cx="1090" cy="150" r="16" fill="#ffffff"/>
++
++  <!-- start icon: a spark/curiosity mark -->
++  <g transform="translate(110 480)" stroke="#4f46e5" stroke-width="5" stroke-linecap="round">
++    <line x1="0" y1="-26" x2="0" y2="-40"/>
++    <line x1="18" y1="-18" x2="28" y2="-28"/>
++    <line x1="-18" y1="-18" x2="-28" y2="-28"/>
++  </g>
++
++  <!-- end icon: code brackets -->
++  <g transform="translate(1090 150)" fill="none" stroke="#06b6d4" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
++    <path d="M -8 -24 L -24 0 L -8 24"/>
++    <path d="M 8 -24 L 24 0 L 8 24"/>
++  </g>
++
++  <!-- large translucent code-bracket watermark, right side -->
++  <g transform="translate(950 400)" fill="none" stroke="#ffffff" stroke-width="10" opacity="0.18" stroke-linecap="round" stroke-linejoin="round">
++    <path d="M -30 -90 L -90 0 L -30 90"/>
++    <path d="M 30 -90 L 90 0 L 30 90"/>
++  </g>
++</svg>
+diff --git a/public/blog/healthcare-management-system-java-swing/cover.svg b/public/blog/healthcare-management-system-java-swing/cover.svg
+new file mode 100644
+index 0000000..3fa9d80
+--- /dev/null
++++ b/public/blog/healthcare-management-system-java-swing/cover.svg
+@@ -0,0 +1,60 @@
++<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
++  <defs>
++    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
++      <stop offset="0%" stop-color="#8b5cf6"/>
++      <stop offset="100%" stop-color="#ec4899"/>
++    </linearGradient>
++    <radialGradient id="glow2" cx="50%" cy="40%" r="65%">
++      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.16"/>
++      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
++    </radialGradient>
++  </defs>
++  <rect width="1200" height="630" fill="url(#bg2)"/>
++  <rect width="1200" height="630" fill="url(#glow2)"/>
++
++  <g fill="#ffffff" opacity="0.14">
++    <circle cx="70" cy="60" r="2.5"/><circle cx="150" cy="110" r="2"/><circle cx="1130" cy="80" r="2.5"/>
++    <circle cx="1050" cy="150" r="2"/><circle cx="60" cy="560" r="2.5"/><circle cx="1140" cy="570" r="2"/>
++    <circle cx="980" cy="60" r="2"/><circle cx="300" cy="580" r="2"/>
++  </g>
++
++  <!-- dashboard window, left -->
++  <g transform="translate(150 170)">
++    <rect x="0" y="0" width="330" height="240" rx="14" fill="#ffffff" opacity="0.95"/>
++    <rect x="0" y="0" width="330" height="34" rx="14" fill="#f3e8ff"/>
++    <circle cx="20" cy="17" r="5" fill="#ec4899"/>
++    <circle cx="38" cy="17" r="5" fill="#f59e0b"/>
++    <circle cx="56" cy="17" r="5" fill="#22c55e"/>
++    <!-- bar chart -->
++    <g>
++      <rect x="24" y="150" width="26" height="60" rx="4" fill="#8b5cf6" opacity="0.85"/>
++      <rect x="62" y="120" width="26" height="90" rx="4" fill="#ec4899" opacity="0.85"/>
++      <rect x="100" y="160" width="26" height="50" rx="4" fill="#8b5cf6" opacity="0.6"/>
++      <rect x="138" y="100" width="26" height="110" rx="4" fill="#ec4899" opacity="0.6"/>
++    </g>
++    <!-- list rows -->
++    <rect x="200" y="70" width="110" height="10" rx="5" fill="#e9d5ff"/>
++    <rect x="200" y="90" width="90" height="10" rx="5" fill="#e9d5ff"/>
++    <rect x="200" y="110" width="100" height="10" rx="5" fill="#e9d5ff"/>
++    <rect x="200" y="130" width="70" height="10" rx="5" fill="#e9d5ff"/>
++  </g>
++
++  <!-- medical cross badge, right -->
++  <g transform="translate(880 200)">
++    <circle cx="0" cy="0" r="90" fill="#ffffff" opacity="0.95"/>
++    <g fill="#ec4899">
++      <rect x="-14" y="-52" width="28" height="104" rx="8"/>
++      <rect x="-52" y="-14" width="104" height="28" rx="8"/>
++    </g>
++  </g>
++
++  <!-- java coffee cup, bottom center -->
++  <g transform="translate(600 430)">
++    <path d="M -60 0 h 120 l -12 70 a 12 12 0 0 1 -12 10 h -72 a 12 12 0 0 1 -12 -10 Z" fill="#ffffff" opacity="0.95"/>
++    <path d="M 60 10 q 40 0 40 30 q 0 30 -40 30" fill="none" stroke="#ffffff" stroke-width="10" opacity="0.95"/>
++    <g stroke="#8b5cf6" stroke-width="6" fill="none" opacity="0.7" stroke-linecap="round">
++      <path d="M -20 -18 q 8 -20 0 -34"/>
++      <path d="M 10 -18 q 8 -20 0 -34"/>
++    </g>
++  </g>
++</svg>
+diff --git a/public/blog/how-i-use-ai-as-a-student-developer/cover.svg b/public/blog/how-i-use-ai-as-a-student-developer/cover.svg
+new file mode 100644
+index 0000000..ccf5160
+--- /dev/null
++++ b/public/blog/how-i-use-ai-as-a-student-developer/cover.svg
+@@ -0,0 +1,60 @@
++<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
++  <defs>
++    <linearGradient id="bg4" x1="0%" y1="0%" x2="100%" y2="100%">
++      <stop offset="0%" stop-color="#7c3aed"/>
++      <stop offset="100%" stop-color="#2563eb"/>
++    </linearGradient>
++    <radialGradient id="glow4" cx="60%" cy="35%" r="65%">
++      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.18"/>
++      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
++    </radialGradient>
++  </defs>
++  <rect width="1200" height="630" fill="url(#bg4)"/>
++  <rect width="1200" height="630" fill="url(#glow4)"/>
++
++  <g fill="#ffffff" opacity="0.14">
++    <circle cx="70" cy="70" r="2.5"/><circle cx="1130" cy="90" r="2"/><circle cx="60" cy="560" r="2.5"/>
++    <circle cx="1140" cy="550" r="2"/><circle cx="600" cy="50" r="2"/>
++  </g>
++
++  <!-- neural network, top -->
++  <g stroke="#ffffff" stroke-width="2.5" opacity="0.55">
++    <line x1="420" y1="120" x2="600" y2="90"/>
++    <line x1="420" y1="120" x2="600" y2="150"/>
++    <line x1="480" y1="170" x2="600" y2="90"/>
++    <line x1="480" y1="170" x2="600" y2="150"/>
++    <line x1="600" y1="90" x2="780" y2="120"/>
++    <line x1="600" y1="150" x2="780" y2="120"/>
++    <line x1="600" y1="90" x2="780" y2="170"/>
++    <line x1="600" y1="150" x2="780" y2="170"/>
++  </g>
++  <g fill="#ffffff">
++    <circle cx="420" cy="120" r="9"/>
++    <circle cx="480" cy="170" r="9"/>
++    <circle cx="600" cy="90" r="9"/>
++    <circle cx="600" cy="150" r="9"/>
++    <circle cx="780" cy="120" r="9"/>
++    <circle cx="780" cy="170" r="9"/>
++  </g>
++
++  <!-- laptop, center -->
++  <g transform="translate(600 400)">
++    <rect x="-170" y="-100" width="340" height="200" rx="14" fill="#ffffff" opacity="0.95"/>
++    <rect x="-152" y="-82" width="304" height="150" rx="6" fill="#312e81"/>
++    <!-- code lines on screen -->
++    <g stroke="#7c3aed" stroke-width="7" stroke-linecap="round" opacity="0.9">
++      <line x1="-130" y1="-55" x2="-40" y2="-55"/>
++      <line x1="-110" y1="-25" x2="20" y2="-25"/>
++      <line x1="-90" y1="5" x2="60" y2="5"/>
++      <line x1="-110" y1="35" x2="-10" y2="35"/>
++    </g>
++    <!-- keyboard base -->
++    <path d="M -200 100 L -170 100 L 170 100 L 200 100 L 180 150 L -180 150 Z" fill="#ffffff" opacity="0.95"/>
++  </g>
++
++  <!-- sparkle accents -->
++  <g fill="#ffffff" opacity="0.9">
++    <path d="M 920 380 l 8 20 l 20 8 l -20 8 l -8 20 l -8 -20 l -20 -8 l 20 -8 Z"/>
++    <path d="M 280 300 l 6 14 l 14 6 l -14 6 l -6 14 l -6 -14 l -14 -6 l 14 -6 Z" opacity="0.7"/>
++  </g>
++</svg>
+diff --git a/src/components/cards.jsx b/src/components/cards.jsx
+index 55c8c52..047ff59 100644
+--- a/src/components/cards.jsx
++++ b/src/components/cards.jsx
+@@ -68,7 +68,14 @@ export function BlogCard({ post }) {
+   const date = new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+   return (
+     <Link to={`/blog/${post.slug}`} className="card tile reveal">
+-      <div className={`tile__cover grad-cover ${post.cover}`}>
++      <div
++        className={post.coverImage ? 'tile__cover' : `tile__cover grad-cover ${post.cover}`}
++        style={
++          post.coverImage
++            ? { backgroundImage: `url(${post.coverImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }
++            : undefined
++        }
++      >
+         <span className="chip chip--accent">{post.category}</span>
+       </div>
+       <h3>{post.title}</h3>
+diff --git a/src/data/blog.js b/src/data/blog.js
+index b51c58d..13a278d 100644
+--- a/src/data/blog.js
++++ b/src/data/blog.js
+@@ -22,6 +22,7 @@ export const posts = [
+     date: '2026-07-07',
+     readingTime: 8,
+     cover: 'grad-3',
++    coverImage: '/blog/building-ai-enabled-smart-auto-injector/cover.svg',
+     featured: true,
+     content: [
+       { type: 'p', text: 'As engineering students, we often build projects that solve a problem on paper. This time, I wanted to build something that could actually demonstrate how embedded systems, sensors, and automation can come together in healthcare.' },
+@@ -81,6 +82,7 @@ export const posts = [
+     date: '2026-07-08',
+     readingTime: 6,
+     cover: 'grad-2',
++    coverImage: '/blog/healthcare-management-system-java-swing/cover.svg',
+     featured: true,
+     content: [
+       { type: 'p', text: 'When we think about hospitals, we usually picture doctors, nurses, and patients. What often goes unnoticed is the enormous amount of data that hospitals manage every single day: patient records, appointments, billing, pharmacy inventory, emergency monitoring, and much more. Handling all of this manually is time-consuming and increases the chances of human error.' },
+@@ -153,6 +155,7 @@ export const posts = [
+     date: '2026-07-06',
+     readingTime: 5,
+     cover: 'grad-1',
++    coverImage: '/blog/from-curiosity-to-code/cover.svg',
+     featured: true,
+     content: [
+       { type: 'p', text: 'If someone had told me a year ago that I would spend hours reading documentation, debugging code, and genuinely enjoying the process of building software, I probably would not have believed them.' },
+@@ -186,6 +189,7 @@ export const posts = [
+     date: '2026-07-05',
+     readingTime: 6,
+     cover: 'grad-4',
++    coverImage: '/blog/how-i-use-ai-as-a-student-developer/cover.svg',
+     featured: true,
+     content: [
+       { type: 'p', text: 'When people hear that I use AI while coding, one of the first assumptions they make is that AI writes everything for me.' },
+diff --git a/src/pages/BlogPost.jsx b/src/pages/BlogPost.jsx
+index 1bda1b4..089ddfd 100644
+--- a/src/pages/BlogPost.jsx
++++ b/src/pages/BlogPost.jsx
+@@ -83,7 +83,21 @@ export default function BlogPost() {
+             <span>·</span>
+             <span>{post.tags.map((t) => `#${t}`).join(' ')}</span>
+           </div>
+-          <div className={`grad-cover ${post.cover} article__cover`} />
++          <div
++            className={post.coverImage ? '' : `grad-cover ${post.cover} article__cover`}
++            style={
++              post.coverImage
++                ? {
++                    backgroundImage: `url(${post.coverImage})`,
++                    backgroundSize: 'cover',
++                    backgroundPosition: 'center',
++                    borderRadius: 'var(--r-lg)',
++                    height: 320,
++                    margin: '1.5rem 0 2rem',
++                  }
++                : undefined
++            }
++          />
+ 
+           <div className="article__body">
+             <Content blocks={post.content} />
+-- 
+2.43.0
+

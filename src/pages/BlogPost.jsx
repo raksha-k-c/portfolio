@@ -4,6 +4,7 @@ import ReadingProgress from '../components/ReadingProgress'
 import { useReveal } from '../hooks'
 import { getPost, posts } from '../data/blog'
 import { profile } from '../data/profile'
+import authorPhoto from '../assets/author.jpg'
 import NotFound from './NotFound'
 
 const slugify = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
@@ -83,7 +84,21 @@ export default function BlogPost() {
             <span>·</span>
             <span>{post.tags.map((t) => `#${t}`).join(' ')}</span>
           </div>
-          <div className={`grad-cover ${post.cover} article__cover`} />
+          <div
+            className={post.coverImage ? '' : `grad-cover ${post.cover} article__cover`}
+            style={
+              post.coverImage
+                ? {
+                    backgroundImage: `url(${post.coverImage})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    borderRadius: 'var(--r-lg)',
+                    height: 320,
+                    margin: '1.5rem 0 2rem',
+                  }
+                : undefined
+            }
+          />
 
           <div className="article__body">
             <Content blocks={post.content} />
@@ -97,7 +112,7 @@ export default function BlogPost() {
           </div>
 
           <div className="card author-box">
-            <div className="author-avatar" />
+            <img src={authorPhoto} alt={profile.name} className="author-avatar" style={{ objectFit: 'cover' }} />
             <div>
               <div style={{ color: 'var(--text-h)', fontWeight: 600 }}>{profile.name}</div>
               <div style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>{profile.role}. {profile.short}</div>

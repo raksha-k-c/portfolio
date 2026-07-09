@@ -22,6 +22,7 @@ export const posts = [
     date: '2026-07-07',
     readingTime: 8,
     cover: 'grad-3',
+    coverImage: '/blog/building-ai-enabled-smart-auto-injector/cover.svg',
     featured: true,
     content: [
       { type: 'p', text: 'As engineering students, we often build projects that solve a problem on paper. This time, I wanted to build something that could actually demonstrate how embedded systems, sensors, and automation can come together in healthcare.' },
@@ -81,6 +82,7 @@ export const posts = [
     date: '2026-07-08',
     readingTime: 6,
     cover: 'grad-2',
+    coverImage: '/blog/healthcare-management-system-java-swing/cover.svg',
     featured: true,
     content: [
       { type: 'p', text: 'When we think about hospitals, we usually picture doctors, nurses, and patients. What often goes unnoticed is the enormous amount of data that hospitals manage every single day: patient records, appointments, billing, pharmacy inventory, emergency monitoring, and much more. Handling all of this manually is time-consuming and increases the chances of human error.' },
@@ -153,6 +155,7 @@ export const posts = [
     date: '2026-07-06',
     readingTime: 5,
     cover: 'grad-1',
+    coverImage: '/blog/from-curiosity-to-code/cover.svg',
     featured: true,
     content: [
       { type: 'p', text: 'If someone had told me a year ago that I would spend hours reading documentation, debugging code, and genuinely enjoying the process of building software, I probably would not have believed them.' },
@@ -186,6 +189,7 @@ export const posts = [
     date: '2026-07-05',
     readingTime: 6,
     cover: 'grad-4',
+    coverImage: '/blog/how-i-use-ai-as-a-student-developer/cover.svg',
     featured: true,
     content: [
       { type: 'p', text: 'When people hear that I use AI while coding, one of the first assumptions they make is that AI writes everything for me.' },
