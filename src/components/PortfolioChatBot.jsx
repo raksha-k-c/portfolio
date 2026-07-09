@@ -165,8 +165,7 @@ function pickReply(list) {
 }
 
 function nameFromMessage(text) {
-  const match = text.match(/(?:i'?m|my name is|call me)\s+([a-zA-Z]+)/i);
-  return match ? match[1] : null;
+const match = text.match(/(?:my name is|call me|i'?m called)\s+([a-zA-Z]+)/i);
 }
 
 function getBotReply(userText, memory) {
