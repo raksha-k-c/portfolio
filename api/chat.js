@@ -41,28 +41,45 @@ Rules:
 
   try {
     const apiKey = process.env.Gemini_API_Key;
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${apiKey}`;
+    const body = JSON.stringify({
+      system_instruction: { parts: [{ text: systemPrompt }] },
+      contents: [{ role: "user", parts: [{ text: message }] }],
+      generationConfig: { maxOutputTokens: 200, temperature: 0.8 },
+    });
 
-    const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${apiKey}`,      {
+    let response = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body,
+    });
+
+    // If overloaded, wait briefly and try one more time
+    if (response.status === 503) {
+      await new Promise((r) => setTimeout(r, 800));
+      response = await fetch(url, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          system_instruction: {
-            parts: [{ text: systemPrompt }],
-          },
-          contents: [
-            {
-              role: "user",
-              parts: [{ text: message }],
-            },
-          ],
-          generationConfig: {
-            maxOutputTokens: 200,
-            temperature: 0.8,
-          },
-        }),
-      }
-    );
+        body,
+      });
+    }
+
+    if (!response.ok) {
+      throw new Error(`Gemini API error: ${response.status}`);
+    }
+
+    const data = await response.json();
+    const reply = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+
+    if (!reply) {
+      throw new Error("No reply from Gemini");
+    }
+
+    return res.status(200).json({ reply: reply.trim() });
+  } catch (err) {
+    console.error("Gemini call failed:", err.message);
+    return res.status(500).json({ error: "LLM unavailable" });
+  }
 
     if (!response.ok) {
       throw new Error(`Gemini API error: ${response.status}`);
