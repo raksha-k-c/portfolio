@@ -236,14 +236,28 @@ function pickReply(list) {
   return list[Math.floor(Math.random() * list.length)];
 }
 
-function nameFromMessage(text) {
-  const match = text.match(/(?:my name is|call me|i'?m called)\s+([a-zA-Z]+)/i);
-  return match ? match[1] : null;
+const SHORTHAND = {
+  u: "you",
+  ur: "your",
+  r: "are",
+  pls: "please",
+  plz: "please",
+  thx: "thanks",
+  bc: "because",
+  coz: "because",
+  y: "why",
+  k: "okay",
+};
+
+function expandShorthand(text) {
+  return text.replace(/\b[a-z]+\b/gi, (word) => {
+    const lower = word.toLowerCase();
+    return SHORTHAND[lower] || word;
+  });
 }
 
 function getBotReply(userText, memory) {
-  const text = userText.toLowerCase();
-
+  const text = expandShorthand(userText.toLowerCase());
   const newName = nameFromMessage(text);
   if (newName) memory.userName = newName;
 
@@ -255,8 +269,7 @@ function getBotReply(userText, memory) {
   let bestScore = 0;
   for (const intent of INTENTS) {
     const score = intent.keywords.reduce((acc, kw) => {
-      const pattern = new RegExp(`\\b${kw.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`, "i");
-      return pattern.test(text) ? acc + kw.split(" ").length : acc;
+    const pattern = new RegExp(`\\b${kw.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}s?\\b`, "i");      return pattern.test(text) ? acc + kw.split(" ").length : acc;
     }, 0);
     if (score > bestScore) {
       bestScore = score;
