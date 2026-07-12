@@ -332,20 +332,26 @@ export default function PortfolioChatBot() {
     setTyping(true);
 
     let reply;
-    try {
-      const res = await fetch("/api/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: trimmed }),
-      });
+try {
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 8000); // give up after 8 seconds
 
-      if (!res.ok) throw new Error("API failed");
+  const res = await fetch("/api/chat", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ message: trimmed }),
+    signal: controller.signal,
+  });
 
-      const data = await res.json();
-      reply = data.reply;
-    } catch (err) {
-      reply = getBotReply(trimmed, memory.current);
-    }
+  clearTimeout(timeoutId);
+
+  if (!res.ok) throw new Error("API failed");
+
+  const data = await res.json();
+  reply = data.reply;
+} catch (err) {
+  reply = getBotReply(trimmed, memory.current);
+}
 
     setTyping(false);
     setMessages((prev) => [...prev, { role: "bot", text: reply }]);
